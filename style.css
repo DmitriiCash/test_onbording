@@ -1,8 +1,7 @@
-/* Общие стили */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Arial', sans-serif;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,12 +14,8 @@ body {
   height: 100%;
   position: relative;
   overflow: hidden;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Слайды */
 .slides {
   display: flex;
   width: 300%;
@@ -35,20 +30,27 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: #fff;
   padding: 20px;
+  box-sizing: border-box;
 }
 
-.slide img {
-  max-width: 80%;
-  height: auto;
-  margin: 20px 0;
+.slide h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.slide p {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .start-button {
+  margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #28a745;
-  color: white;
+  background-color: #fff;
+  color: #000;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -84,7 +86,7 @@ input[type="radio"] {
 .navigation label {
   width: 10px;
   height: 10px;
-  background: #ddd;
+  background: #fff;
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -93,16 +95,15 @@ input[type="radio"] {
 #slide1:checked ~ .navigation label[for="slide1"],
 #slide2:checked ~ .navigation label[for="slide2"],
 #slide3:checked ~ .navigation label[for="slide3"] {
-  background: #007BFF;
+  background: #FFD700;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
-  .slides {
-    flex-direction: column;
+  .slide h1 {
+    font-size: 20px;
   }
 
-  .slide img {
-    max-width: 100%;
+  .slide p {
+    font-size: 14px;
   }
 }
