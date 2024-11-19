@@ -1,8 +1,8 @@
+/* Общие стили */
 body {
-  font-family: 'Arial', sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,33 +10,51 @@ body {
 }
 
 .onboarding {
-  position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
+  height: 100%;
+  position: relative;
   overflow: hidden;
-  border-radius: 20px;
-  background: white;
+  background: #fff;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Слайды */
 .slides {
   display: flex;
-  transition: transform 0.5s ease-in-out;
   width: 300%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 .slide img {
-  max-width: 100%;
+  max-width: 80%;
+  height: auto;
   margin: 20px 0;
 }
 
+.start-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Радиокнопки */
 input[type="radio"] {
   display: none;
 }
@@ -53,11 +71,14 @@ input[type="radio"] {
   transform: translateX(-66.66%);
 }
 
+/* Навигация */
 .navigation {
+  position: absolute;
+  bottom: 20px;
   display: flex;
   justify-content: center;
+  width: 100%;
   gap: 10px;
-  margin: 10px 0;
 }
 
 .navigation label {
@@ -72,38 +93,16 @@ input[type="radio"] {
 #slide1:checked ~ .navigation label[for="slide1"],
 #slide2:checked ~ .navigation label[for="slide2"],
 #slide3:checked ~ .navigation label[for="slide3"] {
-  background: #4CAF50;
+  background: #007BFF;
 }
 
-.start-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background: #ff5722;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
+/* Адаптивность */
 @media (max-width: 768px) {
-  .onboarding {
-    width: 100%;
-    border-radius: 0;
-  }
-
   .slides {
     flex-direction: column;
   }
 
-  .slide {
-    height: 100vh;
-  }
-
-  .start-button {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+  .slide img {
+    max-width: 100%;
   }
 }
