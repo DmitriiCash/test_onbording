@@ -1,104 +1,77 @@
-body {
+body, html {
   margin: 0;
+  padding: 0;
   font-family: 'Arial', sans-serif;
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
 
 .onboarding {
   width: 100%;
-  max-width: 400px;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* Включаем привязку */
+  -webkit-overflow-scrolling: touch; /* Поддержка плавной прокрутки */
 }
 
 .slides {
   display: flex;
-  width: 300%;
+  width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-  flex: 1;
+  flex: 0 0 100%; /* Каждая слайд занимает 100% ширины */
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start; /* Привязка к началу слайда */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.slide h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.slide1 {
+  background: linear-gradient(135deg, #007BFF, #6FBFFF);
+  color: white;
 }
 
-.slide p {
-  font-size: 16px;
-  line-height: 1.5;
+.slide2 {
+  background: linear-gradient(135deg, #FF4C4C, #FF9999);
+  color: white;
+}
+
+.slide3 {
+  background: linear-gradient(135deg, #28A745, #6CD897);
+  color: white;
+}
+
+.slide img {
+  max-width: 70%;
+  height: auto;
+  margin: 20px 0;
 }
 
 .start-button {
-  margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #fff;
-  color: #000;
+  background: white;
+  color: #28A745;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* Радиокнопки */
-input[type="radio"] {
-  display: none;
-}
-
-#slide1:checked ~ .slides {
-  transform: translateX(0);
-}
-
-#slide2:checked ~ .slides {
-  transform: translateX(-33.33%);
-}
-
-#slide3:checked ~ .slides {
-  transform: translateX(-66.66%);
-}
-
-/* Навигация */
-.navigation {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 10px;
-}
-
-.navigation label {
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#slide1:checked ~ .navigation label[for="slide1"],
-#slide2:checked ~ .navigation label[for="slide2"],
-#slide3:checked ~ .navigation label[for="slide3"] {
-  background: #FFD700;
-}
-
 @media (max-width: 768px) {
+  .slide img {
+    max-width: 90%;
+  }
+
   .slide h1 {
     font-size: 20px;
   }
