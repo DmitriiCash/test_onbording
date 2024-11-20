@@ -1,82 +1,104 @@
+/* Общие стили */
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: #000;
-  height: 100%;
-  overflow: hidden;
-}
-
-.onboarding {
-  width: 100%;
+  background: linear-gradient(135deg, #1e1e2f, #1a1a1a);
+  color: #ffffff;
   height: 100vh;
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory; /* Включаем привязку */
-  -webkit-overflow-scrolling: touch; /* Поддержка плавной прокрутки */
+  justify-content: center;
+  align-items: center;
+}
+
+.onboarding-container {
+  width: 90%;
+  max-width: 360px;
+  height: 85%;
+  background: linear-gradient(135deg, #252525, #1a1a1a);
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .slides {
   display: flex;
-  width: 100%;
+  width: 300%;
   height: 100%;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .slide {
-  flex: 0 0 100%; /* Каждая слайд занимает 100% ширины */
-  width: 100%;
-  height: 100vh;
-  scroll-snap-align: start; /* Привязка к началу слайда */
+  flex: 0 0 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.slide1 {
-  background: linear-gradient(135deg, #007BFF, #6FBFFF);
-  color: white;
+.slide h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.slide2 {
-  background: linear-gradient(135deg, #FF4C4C, #FF9999);
-  color: white;
-}
-
-.slide3 {
-  background: linear-gradient(135deg, #28A745, #6CD897);
-  color: white;
+.slide p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #d0d0d0;
 }
 
 .slide img {
-  max-width: 70%;
-  height: auto;
+  width: 80%;
+  max-height: 150px;
   margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.start-button {
-  padding: 10px 20px;
+.get-started {
+  padding: 12px 24px;
   font-size: 16px;
-  background: white;
-  color: #28A745;
+  color: white;
+  background: linear-gradient(135deg, #007BFF, #0056b3);
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .slide img {
-    max-width: 90%;
-  }
+.get-started:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+}
 
-  .slide h1 {
-    font-size: 20px;
-  }
+/* Навигация */
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 0;
+}
 
-  .slide p {
-    font-size: 14px;
-  }
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: #007BFF;
 }
